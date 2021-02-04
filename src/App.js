@@ -10,60 +10,38 @@ import Divider from '@material-ui/core/Divider';
 import { green, red } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
-  container: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(12, 1fr)',
-    gridGap: theme.spacing(30),
+  root: {
+    flexGrow: 1,
   },
   paper: {
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: red,
-    whiteSpace: 'nowrap',
-    marginBottom: theme.spacing(1),
-    minHeight: 100,
-    background: green,
+    height: 140,
+    minWidth:300,
   },
-  divider: {
-    margin: theme.spacing(2, 0),
+  control: {
+    padding: theme.spacing(4)
   },
 }));
 
+export default function App() {
 
-class App extends Component {
-  render() {
-    return (
+  const [spacing, setSpacing] = React.useState(2);
+  const classes = useStyles();
+
+  return (
     <div className="App">
       <header className="App-header">
-        <div>
-          
-
-        <Grid container className={useStyles.container} spacing={8}>
-          <Grid item xs={4}>
-            <Paper className={useStyles.paper}><Text/></Paper>
+          <Grid container className={classes.root} spacing={2} justify="center">
+            <Grid item>
+              <Paper className={classes.paper}><Text /></Paper>
+            </Grid>
+            <Grid item>
+              <Paper className={classes.paper}><Number /></Paper>
+            </Grid>
+            <Grid item>
+              <Paper className={classes.paper}><UUID /></Paper>
+            </Grid>
           </Grid>
-          <Grid item xs={4}>
-            <Paper className={useStyles.paper}><Number/></Paper>
-          </Grid>
-          <Grid item xs={4}>
-            <Paper className={useStyles.paper}><UUID/></Paper>
-          </Grid>
-          <Grid item xs={4}>
-            <Paper className={useStyles.paper}>TBF</Paper>
-          </Grid>
-          <Grid item xs={4}>
-            <Paper className={useStyles.paper}>TBF</Paper>
-          </Grid>
-          <Grid item xs={4}>
-            <Paper className={useStyles.paper}>TBF</Paper>
-          </Grid>
-        </Grid>
-
-        </div>
       </header>
     </div>
-    );
-  }
+  );
 }
-
-export default App;

@@ -1,3 +1,5 @@
+import '../railscasts.css';
+import Highlight from 'react-highlight.js';
 import React, { Component } from 'react';
 import shuffle from "../input/api.js";
 
@@ -26,6 +28,9 @@ class Number extends Component {
         <div>
           {this.state.text}
         </div>
+        <Highlight language="bash">
+          curl 'https://api-utils.herokuapp.com/random/int' -H 'Accept: text/plain'
+        </Highlight>
       </div>
     );
   }
